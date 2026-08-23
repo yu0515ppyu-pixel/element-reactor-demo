@@ -15,6 +15,7 @@
   </header>
 
   <main id="top">
+    <div class="mobile-quest-host" id="mobile-quest-host" aria-label="当前旅客摘要"></div>
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow">THE STRANGE LITTLE HOTEL</p>
@@ -71,6 +72,7 @@
               <h3 id="request-title">不害怕的夜晚</h3>
               <blockquote class="npc-speech request-dialogue" id="npc-speech">我有点怕黑……晚上能给我留盏灯吗？别一闪一闪的，我会更怕。</blockquote>
               <div class="request-tags" id="request-tags" aria-label="需求标签"><span>亮度 ≥ 3</span><span>舒适 ≥ 2</span><span>避开讨厌的氛围</span></div>
+              <button class="request-details-toggle" id="request-details-toggle" type="button" aria-expanded="false">查看详细要求</button>
             </div>
             <div class="request-result" id="request-result"><b>客房准备中</b><span>旅客正在前台等候；准备好后请他入住。</span></div>
           </article>
@@ -101,6 +103,7 @@
             </div>
             <div class="lab-bottom-bar">
               <p class="interaction-status" id="interaction-status" aria-live="polite">抓起元素靠近可能反应对象</p>
+              <button class="lab-selected-info" id="lab-selected-info" type="button" disabled aria-label="查看当前选中实验元素的详情">ⓘ <span>查看所选</span></button>
               <button class="trash-zone" id="trash-zone" type="button" aria-label="丢弃当前选中的实验元素" title="拖入并松手即可永久丢弃">
                 <svg viewBox="0 0 64 72" aria-hidden="true"><path class="trash-lid" d="M17 17h30M24 17v-6h16v6"/><path class="trash-bin" d="M20 24h24l-3 37H23z"/><path d="M28 32v20M36 32v20"/></svg>
                 <span>丢弃</span>
@@ -188,6 +191,19 @@
       <div class="discovery-grid" id="discovery-grid"><div class="book-empty"><b>图鉴还是空的</b><p>完成第一次反应后，新元素会被记录在这里。</p></div></div>
     </section>
   </main>
+
+  <nav class="mobile-workspace-nav" id="mobile-workspace-nav" aria-label="手机工作区">
+    <button type="button" data-mobile-tab="elements" aria-selected="true"><i>◈</i><span>元素</span></button>
+    <button type="button" data-mobile-tab="lab" aria-selected="false"><i>⚗</i><span>实验</span><em aria-hidden="true"></em></button>
+    <button type="button" data-mobile-tab="room" aria-selected="false"><i>▤</i><span>客房</span></button>
+    <button type="button" data-mobile-tab="storage" aria-selected="false"><i>▣</i><span>收纳</span></button>
+    <button type="button" data-mobile-tab="archive" aria-selected="false"><i>☷</i><span>档案</span></button>
+  </nav>
+  <div class="detail-sheet-backdrop" id="detail-sheet-backdrop" hidden></div>
+  <aside class="mobile-detail-sheet" id="mobile-detail-sheet" role="dialog" aria-modal="true" aria-label="元素详情" hidden>
+    <div class="detail-sheet-handle" aria-hidden="true"></div>
+    <div id="mobile-detail-content"></div>
+  </aside>
 
   <div class="discovery-pop" id="discovery-pop" hidden aria-live="polite"><small>新发现！</small><div id="discovery-pop-visual"></div><b id="discovery-pop-label"></b><span id="discovery-pop-recipe"></span></div>
   <section class="archive-modal" id="archive-modal" hidden aria-modal="true" role="dialog" aria-label="旅客住宿记录">
